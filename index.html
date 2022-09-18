@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Free Weather Updates">
+    <meta name="keywords" content="Weather, BobsterJS Weather">
+    <meta name="author" content="BobsterJS">
+    <meta name="application-name" content="BobsterJS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BobsterJS Weather</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+</head>
+<body onload="getDefWeather()">
+    <header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <span class="fs-4 text-white">BobsterJS Weather</span>
+          </a>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input id="weather-search" type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="text-end">
+          <button type="button" onclick="getWeather()" class="btn btn-warning">Search</button>
+        </div>
+      </div>
+    </div>
+  </header>
+    <div class="container">
+    <br>
+    <main>
+        <div class="row row-cols-1 row-cols-md-1 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm bg-dark">
+              <div class="card-header py-3 bg-dark">
+                <h4 id="location" class="text-white bg-dark my-0 fw-normal">Location placeholder</h4><img id="weather-logo" alt="weather logo" src="https://openweathermap.org/img/wn/50d.png" width="64" height="64">
+              </div>
+              <div class="card-body">
+                <h1 class="text-white" id="weather-main">Loading weather</h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li class="text-white" id="temp">temperature placeholder</li>
+                  <li class="text-white" id="temp-feels-like">feels like placeholder</li>
+                  <li class="text-white" id="temp-humidity">humidity placeholder</li>
+                  <li class="text-white" id="temp-pressure">pressure placeholder</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2>5 Day Forecast</h2>
+        <div class="row row-cols-1 row-cols-md-5 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm bg-dark">
+              <div class="card-header py-3">
+                <h4 class="text-white my-0 fw-normal">Day 1</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li id="temp-day-1" class="text-white">temperature placeholder</li>
+                  <li id="temp-feels-like-1" class="text-white">feels like placeholder</li>
+                  <li id="temp-uv-1" class="text-white">uv placeholder</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm bg-dark">
+              <div class="card-header py-3">
+                <h4 class="text-white my-0 fw-normal">Day 2</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li id="temp-day-2" class="text-white">temperature placeholder</li>
+                  <li id="temp-feels-like-2" class="text-white">feels like placeholder</li>
+                  <li id="temp-uv-2" class="text-white">uv placeholder</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm bg-dark">
+              <div class="card-header py-3">
+                <h4 class="text-white my-0 fw-normal">Day 3</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li id="temp-day-3" class="text-white">temperature placeholder</li>
+                  <li id="temp-feels-like-3" class="text-white">feels like placeholder</li>
+                  <li id="temp-uv-3" class="text-white">uv placeholder</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm bg-dark">
+              <div class="card-header py-3">
+                <h4 class="text-white my-0 fw-normal">Day 4</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li id="temp-day-4" class="text-white">temperature placeholder</li>
+                  <li id="temp-feels-like-4" class="text-white">feels like placeholder</li>
+                  <li id="temp-uv-4" class="text-white">uv placeholder</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm bg-dark">
+              <div class="card-header py-3">
+                <h4 class="text-white my-0 fw-normal">Day 5</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li id="temp-day-5" class="text-white">temperature placeholder</li>
+                  <li id="temp-feels-like-5" class="text-white">feels like placeholder</li>
+                  <li id="temp-uv-5" class="text-white">uv placeholder</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm bg-dark">
+              <div class="card-header py-3">
+                <h4 class="text-white my-0 fw-normal">Wind Information</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li id="wind-speed" class="text-white">wind speed placeholder</li>
+                  <li id="wind-direction" class="text-white">wind direction placeholder</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm bg-dark">
+              <div class="card-header py-3">
+                <h4 class="text-white my-0 fw-normal">Sunrise & Sunset</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li id="sunrise" class="text-white">sunrise placeholder</li>
+                  <li id="sunset" class="text-white">sunset placeholder</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-1 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm bg-dark">
+              <div class="card-header py-3 bg-dark">
+                <h4 id="location" class="text-white bg-dark my-0 fw-normal">Visibility Information</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li class="text-white" id="temp-visibility">visibility placeholder</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-1 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm bg-dark">
+              <div class="card-header py-3 bg-dark">
+                <h4 id="location" class="text-white bg-dark my-0 fw-normal">Air Pollution</h4>
+                <h5 id="pollution-level" class="text-white bg-dark my-0 fw-normal">Air Pollution Level</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li class="text-white" id="pollution-co">co placeholder</li>
+                  <li class="text-white" id="pollution-nh3">nh3 placeholder</li>
+                  <li class="text-white" id="pollution-no">no placeholder</li>
+                  <li class="text-white" id="pollution-no2">no2 placeholder</li>
+                  <li class="text-white" id="pollution-o3">o3 placeholder</li>
+                  <li class="text-white" id="pollution-pm2_5">pm2_5 placeholder</li>
+                  <li class="text-white" id="pollution-pm10">pm10 placeholder</li>
+                  <li class="text-white" id="pollution-so2">so2 placeholder</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="py-3 my-4">
+        <p class="text-center text-muted">Created with ♥ by BobsterJS</p>
+        <p class="text-center text-muted">Weather data supplied by <a class="link-secondary" href="https://openweathermap.org/">Open Weather Map</a></p>
+      </footer>
+    <br>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/index.js"></script>
+    </div>
+</body>
+</html>
